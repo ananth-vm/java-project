@@ -21,14 +21,14 @@ public class AttendanceService {
     @PostConstruct
     public void initializeSubjects() {
         // Data from your prompt
-        addSubject(new Subject("datastructures", 45));
-        addSubject(new Subject("dsd", 45));
-        addSubject(new Subject("java", 45));
-        addSubject(new Subject("math", 60));
-        addSubject(new Subject("software", 45));
-        addSubject(new Subject("ds lab", 60));
-        addSubject(new Subject("dsd lab", 60));
-        addSubject(new Subject("java lab", 60));
+        addSubject(new Subject("Data Structures", 45,1));
+        addSubject(new Subject("DSD", 45,1));
+        addSubject(new Subject("Java", 45,1));
+        addSubject(new Subject("Probability & Statistics", 60,2));
+        addSubject(new Subject("Software Engineering", 45,1));
+        addSubject(new Subject("DS lab", 60,4));
+        addSubject(new Subject("DSD lab", 60,4));
+        addSubject(new Subject("Java lab", 60,4));
     }
 
     private void addSubject(Subject subject) {
@@ -58,7 +58,7 @@ public class AttendanceService {
         int currentLeave = subject.getClassesLeft();
         // Prevent leave from exceeding total hours
         if (currentLeave < subject.getTotalHours()) {
-            subject.setClassesLeft(currentLeave + 1);
+            subject.setClassesLeft(currentLeave + subject.getInc());
         }
         
         return subject;

@@ -8,13 +8,19 @@ public class Subject {
     private String name;
     private int totalHours; // Total classes that can be held
     private int classesTaken; // Total classes attended (for simplicity, initially totalHours - classesLeft)
-    private int classesLeft; // Classes a student has taken leave for
+    private int classesLeft;
+    private int inc; // Classes a student has taken leave for
 
-    public Subject(String name, int totalHours) {
+    public Subject(String name, int totalHours,int inc) {
         this.name = name;
         this.totalHours = totalHours;
         this.classesLeft = 0; // Starts at 0 leave taken
-        this.classesTaken = totalHours; // Assume all classes are attended initially
+        this.classesTaken = totalHours;
+        this.inc =inc; // Assume all classes are attended initially
+    }
+
+    public int getInc(){
+        return inc;
     }
 
     /**
@@ -33,13 +39,13 @@ public class Subject {
         double percentage = getAttendancePercentage();
         
         if (percentage >= 85.0) {
-            return "great attendance";
+            return "Great Attendance";
         } else if (percentage >= 75.0) {
-            return "be safe";
+            return "Be Safe";
         } else if (percentage >= 65.0) {
-            return "time to get mc or od (medical certificate or official duty)";
+            return "Time to get MC or OD";
         } else {
-            return "lets meet next sem";
+            return "Lets Meet next Sem";
         }
     }
 }

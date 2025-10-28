@@ -1,0 +1,114 @@
+/* ⚡ Neon Vibe Attendance Tracker (Animated Glow Edition) */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 20px;
+    background-color: #000;
+    color: #00ffea;
+    text-shadow: 0 0 5px #00ffea, 0 0 15px #00ffea;
+    animation: bgPulse 10s infinite alternate ease-in-out;
+}
+
+@keyframes bgPulse {
+    0% { background-color: #000010; }
+    100% { background-color: #001010; }
+}
+
+h1 {
+    text-align: center;
+    color: #00ff6a;
+    text-shadow: 0 0 10px #00ff6a, 0 0 25px #00ff6a, 0 0 40px #00ff6a;
+    margin-bottom: 30px;
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 10px #00ff6a, 0 0 25px #00ff6a; }
+    100% { text-shadow: 0 0 20px #ff0040, 0 0 40px #ff0040; }
+}
+
+/* --- Table Layout --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(10, 10, 20, 0.9);
+    box-shadow: 0 0 30px #00ffb3, 0 0 50px #00ffb3;
+    border: 2px solid #00ffb3;
+    border-radius: 10px;
+    table-layout: fixed;
+    animation: tablePulse 3s infinite alternate;
+}
+
+@keyframes tablePulse {
+    0% { box-shadow: 0 0 20px #00ffb3, 0 0 40px #00ffb3; }
+    100% { box-shadow: 0 0 30px #ff003c, 0 0 60px #ff003c; }
+}
+
+th, td {
+    width: 16.6%;
+    border: 1px solid #00ffff;
+    padding: 12px;
+    text-align: left;
+    color: #fff;
+    text-shadow: 0 0 5px #00ffff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+th {
+    background-color: #111133;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    animation: thGlow 4s infinite alternate;
+}
+
+@keyframes thGlow {
+    0% { color: #00ffcc; text-shadow: 0 0 15px #00ffcc; }
+    100% { color: #ff005c; text-shadow: 0 0 25px #ff005c; }
+}
+
+td {
+    background-color: #1a1a2e;
+}
+
+tr:hover td {
+    background-color: #2a2a50;
+    box-shadow: 0 0 15px #00ffff inset, 0 0 25px #00ffff;
+    animation: rowFlicker 1s infinite alternate;
+}
+
+@keyframes rowFlicker {
+    0% { background-color: #2a2a50; }
+    100% { background-color: #3f1a2e; box-shadow: 0 0 25px #ff005c inset; }
+}
+
+/* --- Button Styling --- */
+.plus-btn {
+    background-color: #00ff80;
+    color: #000;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00ff80, 0 0 25px #00ff80, 0 0 50px #00ff80;
+    transition: all 0.2s ease;
+    animation: btnPulse 2s infinite alternate;
+}
+
+.plus-btn:hover {
+    background-color: #ff0040;
+    color: #fff;
+    box-shadow: 0 0 15px #ff0040, 0 0 30px #ff0040, 0 0 60px #ff0040;
+    animation: btnFlicker 0.3s infinite alternate;
+}
+
+@keyframes btnPulse {
+    0% { box-shadow: 0 0 10px #00ff80, 0 0 25px #00ff80; }
+    100% { box-shadow: 0 0 15px #00ffff, 0 0 35px #00ffff; }
+}
+
+@keyframes btnFlicker {
+    0% { transform: scale(1); filter: brightness(1.2); }
+    100% { transform: scale(1.05); filter: brightness(2); }
+}
