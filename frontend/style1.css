@@ -83,7 +83,7 @@ tr:hover td {
 }
 
 /* --- Button Styling --- */
-.plus-btn {
+.plus-btn,.minus-btn {
     background-color: #00ff80;
     color: #000;
     border: none;
@@ -96,7 +96,8 @@ tr:hover td {
     animation: btnPulse 2s infinite alternate;
 }
 
-.plus-btn:hover {
+
+.plus-btn:hover,.minus-btn:hover {
     background-color: #ff0040;
     color: #fff;
     box-shadow: 0 0 15px #ff0040, 0 0 30px #ff0040, 0 0 60px #ff0040;

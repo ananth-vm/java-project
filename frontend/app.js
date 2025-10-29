@@ -34,6 +34,14 @@ function renderTable(subjects) {
         // Pass the subject name to the click handler
         button.onclick = () => takeLeave(subject.name); 
         buttonCell.appendChild(button);
+
+        const buttonCell1 = row.insertCell();
+        const button1 = document.createElement('button');
+        button1.className = 'minus-btn';
+        button1.textContent = '-';
+        // Pass the subject name to the click handler
+        button1.onclick = () => removeLeave(subject.name); 
+        buttonCell1.appendChild(button1);
     });
 }
 
@@ -61,6 +69,31 @@ async function takeLeave(subjectName) {
         alert(`Failed to take leave for ${subjectName}. Check server logs.`);
     }
 }
+
+async function removeLeave(subjectName) {
+    const putUrl = `${API_URL}/remove/${subjectName}`;
+    try {
+        // Send a PUT request to the Spring Boot API
+        const response = await fetch(putUrl, {
+            method: 'PUT'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        // Get the updated subject data from the response
+        const updatedSubject = await response.json();
+        
+        // Update only the specific row in the table
+        updateTableRow(updatedSubject);
+
+    } catch (error) {
+        console.error(`Error taking leave for ${subjectName}:`, error);
+        alert(`Failed to take leave for ${subjectName}. Check server logs.`);
+    }
+}
+
 
 // --- 4. Function to Update a Single Row ---
 function updateTableRow(subject) {

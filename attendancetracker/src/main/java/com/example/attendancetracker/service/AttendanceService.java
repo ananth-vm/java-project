@@ -63,4 +63,21 @@ public class AttendanceService {
         
         return subject;
     }
+
+    public Subject removeLeave(String subjectName) {
+        Subject subject = subjectRepository.get(subjectName.toLowerCase());
+        
+        if (subject == null) {
+            // In a real app, you'd throw a NotFoundException here
+            return null; 
+        }
+
+        int currentLeave = subject.getClassesLeft();
+        // Prevent leave from exceeding total hours
+        if (currentLeave >0) {
+            subject.setClassesLeft(currentLeave - subject.getInc());
+        }
+        
+        return subject;
+    }
 }

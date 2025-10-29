@@ -39,13 +39,13 @@ public class Subject {
         double percentage = getAttendancePercentage();
         
         if (percentage >= 85.0) {
-            return "Great Attendance";
+            return "Great Attendance🦣";
         } else if (percentage >= 75.0) {
-            return "Be Safe";
+            return "Be Safe⚠️";
         } else if (percentage >= 65.0) {
-            return "Time to get MC or OD";
+            return "Time to get MC or OD👺";
         } else {
-            return "Lets Meet next Sem";
+            return "Next Sem lil Bro!😘";
         }
     }
 }

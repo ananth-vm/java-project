@@ -44,4 +44,16 @@ public class AttendanceController {
         
         return ResponseEntity.ok(updatedSubject);
     }
+
+     @PutMapping("/remove/{subjectName}")
+    public ResponseEntity<Subject> removeLeave(@PathVariable String subjectName) {
+        Subject updatedSubject = attendanceService.removeLeave(subjectName);
+        
+        if (updatedSubject == null) {
+            // System.out.println("Subject not found: " + subjectName);
+            return ResponseEntity.notFound().build();
+        }
+        
+        return ResponseEntity.ok(updatedSubject);
+    }
 }
